@@ -1,0 +1,22 @@
+headers:
+    use-pandas.DataFrame.get_loc: Use `pandas.DataFrame.get_loc()`
+---
+# How to get the index of a Pandas DataFrame column from its name in Python
+Given the name of a column in a Pandas [`DataFrame`](kite-sym:pandas.DataFrame), its index can be obtained.
+
+## Use [`pandas.DataFrame.get_loc()`](kite-sym:pandas.CategoricalIndex.get_loc) to get the index of a DataFrame column from its name {#use-pandas.DataFrame.get_loc}
+Use [`pandas.DataFrame.columns`](kite-sym:pandas.DataFrame.columns) to obtain an object containing all column names in `pandas.DataFrame`. On this result, call [`get_loc(key)`](kite-sym:pandas.CategoricalIndex.get_loc) with `key` as a column name, to get the index of `key`.
+```python
+KITE.start_prelude()
+import pandas as pd
+import numpy as np
+KITE.stop_prelude()
+KITE.set_display_code(False)
+df = pd.DataFrame({"A": [np.NaN, 2, 3], "B": [4, 5, np.NaN]})
+KITE.set_display_code(True)
+print(df)
+
+df["A"] = df["A"].fillna(0)
+
+print(df)
+```
